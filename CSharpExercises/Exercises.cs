@@ -65,9 +65,21 @@ namespace CSharpExercises
             return new string(charArray);
         }
         // 8. Create a method called PrintTimesTable that accepts an integer and returns the times table as a string for that number up to the 10th multiplication.
-        public static string PrintTimesTable(int number)
+        public static string PrintTimesTable(int num)
         {
-            return Constants.TimesTableFor9;
+            int prod = 0;
+            string timesTable = "";
+            for (int i = 1; i <= 10; i++)
+            {
+                prod = num * i;
+                timesTable += num.ToString() + " * " + i.ToString() + " = " + prod.ToString();
+                if (i != 10)
+                {
+                    timesTable += Environment.NewLine;
+                }
+            }
+
+            return timesTable;
         }
 
         // 9. Create a method called ConvertKelvinToFahrenheit that accepts a double representing a temperature in kelvin and returns a double containing the temperature in Fahrenheit.
@@ -117,10 +129,9 @@ namespace CSharpExercises
         }
 
         // 15. Create a method called IsConsonant that accepts a char parameter and returns true if the parameter is a consonant or false if the parameter is a vowel.
-      public static bool IsConsonant(char isma)
+        public static bool IsConsonant(char letter)
         {
-            string consonant = "b c d f g h j k l m n p q r s t v w x y z";
-            return consonant.Contains(isma);
+            return !IsVowel(letter);
         }
 
         // 16. The Collatz conjecture, named after Lothar Collatz of Germany, proposed the following conjecture in 1937. 
@@ -151,17 +162,16 @@ namespace CSharpExercises
 
         // 17. Create a method called GetNext7Days that accepts a DateTime object and returns an array of DateTime objects containing the next 7 days (including the given day).
         //public static Array GetNext7Days(DateTime date)
-        //{
-        //    DateTime day = date;
-        //    int i = 0;
-        //    Array NextSeven = new Array[day];
-        //    for (i = 0; i <= 7; i++)
-        //    {
-        //        DateTime week = day.AddDays(1);
-        //        NextSeven week;
-        //    }
-        //    return [0, 1, 2];
-        //}
+        public static DateTime[] GetNext7Days(DateTime day)
+        {
+            DateTime[] week = new DateTime[7];
+
+            for (int i = 0; i < 7; i++)
+            {
+                week[i] = day.AddDays(i);
+            }
+            return week;
+        }
         // 18. Create a method called IsInLeapYear that accepts a DateTime object and returns true if the date falls within a leap year and false if not. (No built in functions allowed)
         public static bool IsInLeapYear(int year)
         {
