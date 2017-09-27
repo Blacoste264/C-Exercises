@@ -268,7 +268,5 @@ namespace CSharpExercises
             Console.WriteLine(game);
                 return game;
         }
-
-        // If you've finished all these challenges, sign up for CodeWars.com and try to complete a few C# challenges there!
     }
 }
